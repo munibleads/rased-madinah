@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+:root {
+  /* Modern gradient background */
+  --background: linear-gradient(135deg, #fafbff 0%, #f8fafc 100%);
+  --background-solid: #fafbff;
+  --foreground: #0f172a;
+  
+  /* Enhanced card design */
+  --card: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(148, 163, 184, 0.1);
+  --card-foreground: #0f172a;
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  
+  /* Modern glass effect */
+  --glass: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  
+  --popover: rgba(255, 255, 255, 0.95);
+  --popover-foreground: #0f172a;
+  
+  /* Enhanced primary colors */
+  --primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --primary-solid: #6366f1;
+  --primary-foreground: #ffffff;
+  
+  /* Softer secondary */
+  --secondary: rgba(241, 245, 249, 0.8);
+  --secondary-foreground: #334155;
+  
+  /* Improved muted colors */
+  --muted: rgba(248, 250, 252, 0.8);
+  --muted-foreground: #64748b;
+  
+  --accent: rgba(236, 254, 255, 0.8);
+  --accent-foreground: #0e7490;
+  
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  /* Modern borders */
+  --border: rgba(148, 163, 184, 0.15);
+  --input: rgba(148, 163, 184, 0.1);
+  --ring: #6366f1;
+  --radius: 0.875rem;
+  
+  /* Glassmorphism effects */
+  --backdrop-blur: blur(16px);
+  --backdrop-blur-sm: blur(8px);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius: var(--radius);
+}
+
+body {
+  background: var(--background-solid);
+  background-image: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply text-foreground;
+    background: var(--background-solid);
+    background-image: var(--background);
+  }
+}
+
+/* Modern glass effects for cards */
+.glass-card {
+  @apply backdrop-blur-sm;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-1px);
+}
+
+/* Enhanced input styling */
+.modern-input {
+  @apply backdrop-blur-sm;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.modern-input:focus {
+  @apply ring-2;
+  ring-color: var(--ring);
+  border-color: var(--ring);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Modern button gradients */
+.gradient-primary {
+  background: var(--primary);
+  @apply text-white shadow-md;
+  transition: all 0.2s ease;
+}
+
+.gradient-primary:hover {
+  transform: translateY(-1px);
+  @apply shadow-lg;
+}
+
+/* RTL Sidebar Positioning */
+[dir="rtl"] [data-slot="sidebar-container"] {
+  left: auto !important;
+  right: 0 !important;
+}
+
+[dir="rtl"] [data-slot="sidebar-container"][data-collapsible="offcanvas"] {
+  right: calc(var(--sidebar-width) * -1) !important;
+  left: auto !important;
+}
+
+[dir="rtl"] [data-slot="sidebar-gap"] {
+  order: 2;
+}
+
+[dir="rtl"] [data-slot="sidebar-inset"] {
+  order: 1;
+}
