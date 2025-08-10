@@ -1,6 +1,6 @@
 "use client"
 
-import { IconAlertTriangle, IconBuildingSkyscraper, IconChartBar, IconClock, IconTrendingUp, IconUsers, IconCalendar, IconTarget } from "@tabler/icons-react"
+import { IconAlertTriangle, IconBuildingSkyscraper, IconTrendingUp, IconUsers, IconTarget } from "@tabler/icons-react"
 import { useEffect, useState } from "react"
 
 import { Badge } from "@/components/ui/badge"

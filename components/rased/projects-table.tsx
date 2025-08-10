@@ -1,11 +1,11 @@
 "use client"
 
-import { IconBuildingSkyscraper, IconCalendar, IconClock, IconUsers, IconTarget, IconAlertTriangle, IconCheck, IconX } from "@tabler/icons-react"
+import { IconCalendar, IconClock, IconUsers } from "@tabler/icons-react"
 import { useEffect, useState } from "react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
@@ -308,7 +308,7 @@ export function ProjectsTable() {
                 </tr>
               </thead>
               <tbody>
-                {filteredProjects.map((project, index) => (
+                {filteredProjects.map((project) => (
                   <tr key={project.id} className="border-b border-gray-100/50 hover:bg-gray-50/30 transition-colors">
                     <td className="p-4">
                       <div className="space-y-1">

@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from "react"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { MapPin, Satellite } from "lucide-react"
 
 // Helper function to get localized text
@@ -336,7 +336,7 @@ export function MapView() {
         mapInstance.current = null
       }
     }
-  }, [currentLang])
+  }, [currentLang, projects])
 
   // Function to switch between map styles
   const switchMapStyle = (style: "street" | "satellite") => {

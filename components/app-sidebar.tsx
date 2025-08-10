@@ -5,22 +5,18 @@ import {
   IconCamera,
   IconChartBar,
   IconDashboard,
-  IconDatabase,
   IconFileAi,
   IconFileDescription,
-  IconFileWord,
   IconFolder,
   IconHelp,
   IconInnerShadowTop,
   IconLanguage,
   IconListDetails,
-  IconReport,
   IconSearch,
   IconSettings,
   IconUsers,
 } from "@tabler/icons-react"
 
-import { NavDocuments } from "@/components/nav-documents"
 import { NavMain } from "@/components/nav-main"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
@@ -33,7 +29,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { Button } from "@/components/ui/button"
 
 // Helper function to get localized text
 const getLocalizedText = (lang: string, enText: string, arText: string) => {
@@ -221,7 +216,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         }
       }
       setCurrentLang(next)
-    } catch (e) {
+    } catch {
       // no-op
     }
   }

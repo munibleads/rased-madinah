@@ -1,6 +1,6 @@
 "use client"
 
-import { IconAdjustmentsHorizontal, IconFilter, IconSearch, IconSparkles } from "@tabler/icons-react"
+import { IconFilter, IconSearch, IconSparkles } from "@tabler/icons-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"

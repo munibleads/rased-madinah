@@ -1,11 +1,11 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, XAxis, YAxis, Area, AreaChart, PieChart, Pie, Cell } from "recharts"
-import { TrendingDown, TrendingUp, AlertTriangle, Shield, Activity, Target } from "lucide-react"
+import { CartesianGrid, ResponsiveContainer, XAxis, YAxis, Area, AreaChart, PieChart, Pie, Cell } from "recharts"
+import { TrendingDown, TrendingUp, Shield } from "lucide-react"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import { ChartConfig, ChartContainer, ChartTooltip } from "@/components/ui/chart"
 import { Badge } from "@/components/ui/badge"
 
 // Helper function to get localized text
