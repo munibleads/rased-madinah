@@ -313,7 +313,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   height={100}
                   className="!size-8 transition-colors rtl:order-2"
                 />
-                <span className="text-base font-semibold bg-gradient-to-r from-indigo-600 to-fuchsia-600 bg-clip-text text-transparent rtl:order-1">
+                <span className="text-base font-semibold text-green-600 rtl:order-1">
                   {getLocalizedText(currentLang, "Rased", "راصد")}
                 </span>
               </a>

@@ -369,52 +369,47 @@ function PhotoAnalysis({ lang }: { lang: string }) {
 }
 
 export default function IntelligencePage() {
-  const [currentLang, setCurrentLang] = React.useState<"en" | "ar">(() => {
-    if (typeof document !== "undefined") {
+  const [currentLang, setCurrentLang] = React.useState<"en" | "ar">("en")
+  const [mounted, setMounted] = React.useState(false)
+  
+  React.useEffect(() => {
+    setMounted(true)
+    const updateLanguage = () => {
       try {
         const match = document.cookie
           .split("; ")
           .find((row) => row.startsWith("app-lang="));
         const cookieLang = match ? decodeURIComponent(match.split("=")[1]) : null;
-        if (cookieLang === "ar" || cookieLang === "en") return cookieLang;
-      } catch {}
-    }
-    if (typeof window !== "undefined") {
-      try {
-        const saved = window.localStorage.getItem("app-lang");
-        if (saved === "ar" || saved === "en") return saved as "en" | "ar";
-      } catch {}
-    }
-    if (typeof document !== "undefined") {
-      const attr = document.documentElement.getAttribute("lang");
-      if (attr === "ar" || attr === "en") return attr as "en" | "ar";
-    }
-    return "en";
-  })
-  const [renderKey, setRenderKey] = React.useState(0)
-  
-  React.useEffect(() => {
-    const updateLanguage = () => {
-      try {
-        const attr = typeof document !== "undefined" ? document.documentElement.getAttribute("lang") : null
-        if (attr === "ar" || attr === "en") {
-          setCurrentLang(attr)
-          setRenderKey((prev) => prev + 1)
+        if (cookieLang === "ar" || cookieLang === "en") {
+          setCurrentLang(cookieLang)
+          return
         }
       } catch {}
+      
+      try {
+        const saved = window.localStorage.getItem("app-lang");
+        if (saved === "ar" || saved === "en") {
+          setCurrentLang(saved as "en" | "ar")
+          return
+        }
+      } catch {}
+      
+      const attr = document.documentElement.getAttribute("lang");
+      if (attr === "ar" || attr === "en") {
+        setCurrentLang(attr as "en" | "ar")
+      }
     }
 
     updateLanguage()
 
     const handleLanguageChange = () => updateLanguage()
 
-    if (typeof window !== "undefined") {
-      window.addEventListener("languageChange", handleLanguageChange)
-      return () => {
-        window.removeEventListener("languageChange", handleLanguageChange)
-      }
+    window.addEventListener("languageChange", handleLanguageChange)
+    return () => {
+      window.removeEventListener("languageChange", handleLanguageChange)
     }
   }, [])
+
 
   return (
     <SidebarProvider
@@ -425,7 +420,7 @@ export default function IntelligencePage() {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader />
-        <div className="flex flex-1 flex-col" key={renderKey}>
+        <div className="flex flex-1 flex-col">
           <div className="@container/main flex flex-1 flex-col gap-2">
             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
               <div className="px-4 lg:px-6">

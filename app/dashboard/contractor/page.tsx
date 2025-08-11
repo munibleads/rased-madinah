@@ -28,45 +28,45 @@ const getText = (lang: string, en: string, ar: string) => (lang === "ar" ? ar : 
 type Lang = "en" | "ar"
 
 function useAppLanguage(): [Lang, number] {
-  const [lang, setLang] = React.useState<Lang>(() => {
-    if (typeof document !== "undefined") {
-      try {
-        const match = document.cookie.split("; ").find((row) => row.startsWith("app-lang="))
-        const cookieLang = match ? decodeURIComponent(match.split("=")[1]) : null
-        if (cookieLang === "ar" || cookieLang === "en") return cookieLang
-      } catch {}
-    }
-    if (typeof window !== "undefined") {
-      try {
-        const saved = window.localStorage.getItem("app-lang")
-        if (saved === "ar" || saved === "en") return saved as Lang
-      } catch {}
-    }
-    if (typeof document !== "undefined") {
-      const attr = document.documentElement.getAttribute("lang")
-      if (attr === "ar" || attr === "en") return attr as Lang
-    }
-    return "en"
-  })
+  const [lang, setLang] = React.useState<Lang>("en")
   const [renderKey, setRenderKey] = React.useState(0)
 
   React.useEffect(() => {
     const update = () => {
       try {
-        const attr = typeof document !== "undefined" ? document.documentElement.getAttribute("lang") : null
-        if (attr === "ar" || attr === "en") {
-          setLang(attr)
-          setRenderKey((k) => k + 1)
+        const match = document.cookie.split("; ").find((row) => row.startsWith("app-lang="))
+        const cookieLang = match ? decodeURIComponent(match.split("=")[1]) : null
+        if (cookieLang === "ar" || cookieLang === "en") {
+          setLang(cookieLang)
+          return
         }
       } catch {}
+      
+      try {
+        const saved = window.localStorage.getItem("app-lang")
+        if (saved === "ar" || saved === "en") {
+          setLang(saved as Lang)
+          return
+        }
+      } catch {}
+      
+      const attr = document.documentElement.getAttribute("lang")
+      if (attr === "ar" || attr === "en") {
+        setLang(attr as Lang)
+      }
     }
+    
     update()
     const handler = () => update()
-    if (typeof window !== "undefined") {
-      window.addEventListener("languageChange", handler)
-      return () => window.removeEventListener("languageChange", handler)
-    }
+    window.addEventListener("languageChange", handler)
+    return () => window.removeEventListener("languageChange", handler)
   }, [])
+
+  React.useEffect(() => {
+    if (lang !== "en") {
+      setRenderKey((k) => k + 1)
+    }
+  }, [lang])
 
   return [lang, renderKey]
 }

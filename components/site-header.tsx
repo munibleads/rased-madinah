@@ -53,7 +53,7 @@ export function SiteHeader() {
             height={55}
             className="rounded-full relative"
           />
-          <div className="text-lg font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
+          <div className="text-lg font-bold text-green-600">
             {getLocalizedText(currentLang, "Rased", "راصد")}
           </div>
           <Badge variant="secondary" className="bg-indigo-100/80 text-indigo-700 text-xs font-medium px-2 py-0.5">

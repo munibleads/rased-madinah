@@ -261,7 +261,7 @@ export function MapView() {
     return () => observer.disconnect()
   }, [])
   
-  const projects = useMemo<ProjectPoint[]>(() => getProjects(currentLang), [currentLang])
+  const projects = useMemo<ProjectPoint[]>(() => getProjects("ar"), [currentLang])
 
   useEffect(() => {
     let maplibregl: any
@@ -525,20 +525,20 @@ export function MapView() {
                   offset: 20,
                   className: "project-popup"
                 }).setHTML(
-                  `<div dir="${currentLang === "ar" ? "rtl" : "ltr"}" style="min-width: 220px; padding: 8px;">
-                    <img src="${p.image}" alt="${getLocalizedText(currentLang, "Project image", "صورة المشروع")}" style="width: 100%; height: 120px; object-fit: cover; border-radius: 6px; margin-bottom: 8px;" />
+                  `<div dir="rtl" style="min-width: 220px; padding: 8px;">
+                    <img src="${p.image}" alt="صورة المشروع" style="width: 100%; height: 120px; object-fit: cover; border-radius: 6px; margin-bottom: 8px;" />
                     <div style="font-weight: 600; margin-bottom: 8px; font-size: 14px; color: #1f2937;">${p.name}</div>
                     <div style="margin-bottom: 6px; font-size: 12px; color: #6b7280;">
-                      <strong>${getLocalizedText(currentLang, "Company", "الشركة")}:</strong> ${p.company}
+                      <strong>الشركة:</strong> ${p.company}
                     </div>
                     <div style="margin-bottom: 6px; font-size: 12px; color: #6b7280;">
-                      <strong>${getLocalizedText(currentLang, "Completion", "نسبة الإنجاز")}:</strong> ${p.completion}%
+                      <strong>نسبة الإنجاز:</strong> ${p.completion}%
                     </div>
                     <div style="margin-bottom: 6px; font-size: 12px; color: #6b7280;">
-                      <strong>${getLocalizedText(currentLang, "Last Update", "آخر تحديث")}:</strong> ${p.lastUpdate}
+                      <strong>آخر تحديث:</strong> ${p.lastUpdate}
                     </div>
                     <div style="font-size: 12px; font-weight: 500; padding: 4px 8px; border-radius: 4px; display: inline-block; background: ${p.status === "critical" ? "#fef2f2" : p.status === "delayed" ? "#fffbeb" : "#f0fdf4"}; color: ${p.status === "critical" ? "#dc2626" : p.status === "delayed" ? "#d97706" : "#16a34a"}; border: 1px solid ${p.status === "critical" ? "#fecaca" : p.status === "delayed" ? "#fed7aa" : "#bbf7d0"};">
-                      ${getLocalizedText(currentLang, p.status.replace('-', ' '), p.status === "on-track" ? "على المسار الصحيح" : p.status === "delayed" ? "متأخر" : "حرج")}
+                      ${p.status === "on-track" ? "على المسار الصحيح" : p.status === "delayed" ? "متأخر" : "حرج"}
                     </div>
                   </div>`
                 )

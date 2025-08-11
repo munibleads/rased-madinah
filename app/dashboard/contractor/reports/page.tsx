@@ -37,49 +37,47 @@ type ContractorReport = {
 }
 
 function useAppLanguage(): [Lang, number] {
-  const [lang, setLang] = React.useState<Lang>(() => {
-    if (typeof document !== "undefined") {
+  const [lang, setLang] = React.useState<Lang>("en")
+  const [renderKey, setRenderKey] = React.useState(0)
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+    const update = () => {
       try {
         const match = document.cookie
           .split("; ")
           .find((row) => row.startsWith("app-lang="))
         const cookieLang = match ? decodeURIComponent(match.split("=")[1]) : null
-        if (cookieLang === "ar" || cookieLang === "en") return cookieLang
-      } catch {}
-    }
-    if (typeof window !== "undefined") {
-      try {
-        const saved = window.localStorage.getItem("app-lang")
-        if (saved === "ar" || saved === "en") return saved as Lang
-      } catch {}
-    }
-    if (typeof document !== "undefined") {
-      const attr = document.documentElement.getAttribute("lang")
-      if (attr === "ar" || attr === "en") return attr as Lang
-    }
-    return "en"
-  })
-  const [renderKey, setRenderKey] = React.useState(0)
-
-  React.useEffect(() => {
-    const update = () => {
-      try {
-        const attr = typeof document !== "undefined" ? document.documentElement.getAttribute("lang") : null
-        if (attr === "ar" || attr === "en") {
-          setLang(attr)
+        if (cookieLang === "ar" || cookieLang === "en") {
+          setLang(cookieLang)
           setRenderKey((k) => k + 1)
+          return
         }
       } catch {}
+      
+      try {
+        const saved = window.localStorage.getItem("app-lang")
+        if (saved === "ar" || saved === "en") {
+          setLang(saved as Lang)
+          setRenderKey((k) => k + 1)
+          return
+        }
+      } catch {}
+      
+      const attr = document.documentElement.getAttribute("lang")
+      if (attr === "ar" || attr === "en") {
+        setLang(attr as Lang)
+        setRenderKey((k) => k + 1)
+      }
     }
     update()
     const handler = () => update()
-    if (typeof window !== "undefined") {
-      window.addEventListener("languageChange", handler)
-      return () => window.removeEventListener("languageChange", handler)
-    }
+    window.addEventListener("languageChange", handler)
+    return () => window.removeEventListener("languageChange", handler)
   }, [])
 
-  return [lang, renderKey]
+  return [mounted ? lang : "en", renderKey]
 }
 
 const t = (lang: Lang, en: string, ar: string) => (lang === "ar" ? ar : en)
@@ -321,7 +319,7 @@ function NewReportForm({ lang, onCreate, onSubmitted }: { lang: Lang; onCreate: 
         />
       </div>
       <div className="flex items-center gap-2 rtl:flex-row-reverse">
-        <Button type="submit" disabled={submitting} className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 text-white">
+        <Button type="submit" disabled={submitting} className="bg-gradient-to-r from-green-600 to-emerald-600 text-white">
           <IconPlus className="h-4 w-4" />
           <span className="ms-2">{t(lang, "Submit Report", "إرسال التقرير")}</span>
         </Button>
@@ -408,6 +406,11 @@ export default function ContractorReportsPage() {
   const [lang, renderKey] = useAppLanguage()
   const [userReports, persist, reset] = useUserReports()
   const [open, setOpen] = React.useState(false)
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const handleCreate = (r: ContractorReport) => {
     const next = [r, ...userReports]
@@ -438,6 +441,51 @@ export default function ContractorReportsPage() {
     return all.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
   }, [userReports])
 
+  // Show loading state until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <SidebarProvider>
+        <AppSidebar variant="inset" />
+        <SidebarInset>
+          <div className="flex flex-1 flex-col min-h-screen">
+            <div className="@container/main flex flex-1 flex-col relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/30 via-white/10 to-purple-50/30 pointer-events-none" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.03),transparent_50%)] pointer-events-none" />
+
+              <div className="relative flex flex-col gap-8 py-8">
+                <div className="px-6 lg:px-8">
+                  <div className="flex items-start gap-3">
+                    <div className="ml-auto flex items-center gap-2 rtl:flex-row-reverse">
+                      <div className="h-9 w-32 animate-pulse bg-muted rounded-md"></div>
+                      <div className="h-9 w-24 animate-pulse bg-muted rounded-md"></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="px-6 lg:px-8">
+                  <div className="flex items-center justify-between">
+                    <div className="space-y-1">
+                      <div className="h-8 w-48 animate-pulse bg-muted rounded-md"></div>
+                      <div className="h-4 w-64 animate-pulse bg-muted rounded-md"></div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="h-9 w-32 animate-pulse bg-muted rounded-md"></div>
+                      <div className="h-9 w-24 animate-pulse bg-muted rounded-md"></div>
+                    </div>
+                  </div>
+                  <div className="mt-6 space-y-4">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <div key={i} className="h-20 animate-pulse bg-muted rounded-lg"></div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </SidebarInset>
+      </SidebarProvider>
+    )
+  }
+
   return (
     <SidebarProvider style={{ "--header-height": "calc(var(--spacing) * 12)" } as React.CSSProperties}>
       <AppSidebar variant="inset" />
@@ -456,7 +504,7 @@ export default function ContractorReportsPage() {
                       <Button
                         size="sm"
                         onClick={() => setOpen(true)}
-                        className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 text-white shadow hover:opacity-90"
+                        className="bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow hover:opacity-90"
                       >
                         <IconPlus className="h-4 w-4" />
                         <span className="ms-2">{t(lang, "Create new report", "إنشاء تقرير جديد")}</span>
