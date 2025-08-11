@@ -691,12 +691,12 @@ export function MapView() {
              setActiveTab(value)
            }
           }} className="w-full h-full" style={{ pointerEvents: 'auto' }}>
-           <TabsList className="absolute top-4 left-4 z-20 bg-white shadow-lg border border-gray-200 rounded-lg p-1">
-             <TabsTrigger value="street" className="text-sm px-4 py-2 font-medium data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-700 data-[state=inactive]:hover:text-blue-600 transition-colors flex items-center gap-2">
+            <TabsList className="absolute top-4 left-4 z-20 bg-white shadow-lg border border-gray-200 rounded-lg p-1">
+             <TabsTrigger value="street" className="text-sm px-4 py-2 font-medium data-[state=active]:bg-green-600 data-[state=active]:text-white data-[state=inactive]:text-gray-700 data-[state=inactive]:hover:text-green-600 transition-colors flex items-center gap-2">
                <MapPin className="w-4 h-4" />
                {getLocalizedText(currentLang, "Street", "الشارع")}
              </TabsTrigger>
-             <TabsTrigger value="satellite" className="text-sm px-4 py-2 font-medium data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-700 data-[state=inactive]:hover:text-blue-600 transition-colors flex items-center gap-2">
+             <TabsTrigger value="satellite" className="text-sm px-4 py-2 font-medium data-[state=active]:bg-green-600 data-[state=active]:text-white data-[state=inactive]:text-gray-700 data-[state=inactive]:hover:text-green-600 transition-colors flex items-center gap-2">
                <Satellite className="w-4 h-4" />
                {getLocalizedText(currentLang, "Satellite", "الأقمار الصناعية")}
              </TabsTrigger>

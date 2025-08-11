@@ -335,13 +335,13 @@ export function ReportsReview() {
                 <TableCell className="text-muted-foreground">{r.submittedAt}</TableCell>
                 <TableCell>
                   {r.status === "approved" && (
-                    <Badge className="bg-emerald-50/80 text-emerald-700 border-emerald-200/50">
+                    <Badge className="bg-green-50/80 text-green-700 border-green-200/50">
                       <IconCheck className="size-3" />
                       {getLocalizedText(currentLang, "Approved", "مقبول")}
                     </Badge>
                   )}
                   {r.status === "rejected" && (
-                    <Badge className="bg-red-50/80 text-red-700 border-red-200/50">
+                    <Badge className="bg-green-50/80 text-green-700 border-green-200/50">
                       <IconX className="size-3" />
                       {getLocalizedText(currentLang, "Rejected", "مرفوض")}
                     </Badge>

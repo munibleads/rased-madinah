@@ -321,7 +321,7 @@ function NewReportForm({ lang, onCreate, onSubmitted }: { lang: Lang; onCreate: 
         />
       </div>
       <div className="flex items-center gap-2 rtl:flex-row-reverse">
-        <Button type="submit" disabled={submitting} className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 text-white">
+        <Button type="submit" disabled={submitting} className="bg-gradient-to-r from-green-600 to-emerald-600 text-white">
           <IconPlus className="h-4 w-4" />
           <span className="ms-2">{t(lang, "Submit Report", "إرسال التقرير")}</span>
         </Button>
@@ -445,8 +445,8 @@ export default function ContractorReportsPage() {
         <SiteHeader />
         <div className="flex flex-1 flex-col min-h-screen" key={renderKey}>
           <div className="@container/main flex flex-1 flex-col relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/30 via-white/10 to-purple-50/30 pointer-events-none" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.03),transparent_50%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-green-50/40 via-white/10 to-emerald-50/40 pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.06),transparent_55%)] pointer-events-none" />
 
             <div className="relative flex flex-col gap-8 py-8">
               <div className="px-6 lg:px-8">
@@ -456,7 +456,7 @@ export default function ContractorReportsPage() {
                       <Button
                         size="sm"
                         onClick={() => setOpen(true)}
-                        className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 text-white shadow hover:opacity-90"
+                        className="bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow hover:opacity-90"
                       >
                         <IconPlus className="h-4 w-4" />
                         <span className="ms-2">{t(lang, "Create new report", "إنشاء تقرير جديد")}</span>

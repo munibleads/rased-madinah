@@ -40,11 +40,11 @@ const windowDays = daysBetween(windowStart, windowEnd)
 const getStatusColor = (status: Task["status"]) => {
   switch (status) {
     case "critical":
-      return "bg-red-500/80 hover:bg-red-500/90"
+      return "bg-green-800/80 hover:bg-green-800/90"
     case "delayed":
-      return "bg-amber-500/80 hover:bg-amber-500/90"
+      return "bg-green-600/80 hover:bg-green-600/90"
     case "on-track":
-      return "bg-emerald-500/80 hover:bg-emerald-500/90"
+      return "bg-green-500/80 hover:bg-green-500/90"
     default:
       return "bg-primary/80 hover:bg-primary/90"
   }
@@ -53,7 +53,7 @@ const getStatusColor = (status: Task["status"]) => {
 const getStatusBadgeVariant = (status: Task["status"]) => {
   switch (status) {
     case "critical":
-      return "destructive"
+      return "secondary"
     case "delayed":
       return "secondary"
     case "on-track":

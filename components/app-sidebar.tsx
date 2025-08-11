@@ -309,11 +309,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <Image
                   src="/rased logo.png"
                   alt="Rased Logo"
-                  width={20}
-                  height={20}
-                  className="!size-5 transition-colors rtl:order-2"
+                  width={100}
+                  height={100}
+                  className="!size-8 transition-colors rtl:order-2"
                 />
-                <span className="text-base font-semibold bg-gradient-to-r from-indigo-600 to-fuchsia-600 bg-clip-text text-transparent rtl:order-1">
+                <span className="text-base font-semibold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent rtl:order-1">
                   {getLocalizedText(currentLang, "Rased", "راصد")}
                 </span>
               </a>

@@ -137,40 +137,40 @@ const projectsData = [
   }
 ]
 
-const getStatusColor = (status: string) => {
+  const getStatusColor = (status: string) => {
   switch (status) {
     case "Completed":
       return "bg-green-100 text-green-800 border-green-200"
     case "In Progress":
-      return "bg-blue-100 text-blue-800 border-blue-200"
+      return "bg-green-100 text-green-800 border-green-200"
     case "Review":
-      return "bg-amber-100 text-amber-800 border-amber-200"
+      return "bg-green-100 text-green-800 border-green-200"
     case "Planning":
-      return "bg-gray-100 text-gray-800 border-gray-200"
+      return "bg-green-50 text-green-800 border-green-200"
     default:
-      return "bg-gray-100 text-gray-800 border-gray-200"
+      return "bg-green-50 text-green-800 border-green-200"
   }
 }
 
-const getPriorityColor = (priority: string) => {
+  const getPriorityColor = (priority: string) => {
   switch (priority) {
     case "High":
-      return "bg-red-100 text-red-800 border-red-200"
+      return "bg-green-200 text-green-900 border-green-300"
     case "Medium":
-      return "bg-yellow-100 text-yellow-800 border-yellow-200"
-    case "Low":
       return "bg-green-100 text-green-800 border-green-200"
+    case "Low":
+      return "bg-green-50 text-green-800 border-green-200"
     default:
-      return "bg-gray-100 text-gray-800 border-gray-200"
+      return "bg-green-50 text-green-800 border-green-200"
   }
 }
 
-const getProgressColor = (progress: number) => {
-  if (progress >= 80) return "bg-green-500"
-  if (progress >= 60) return "bg-blue-500"
-  if (progress >= 40) return "bg-yellow-500"
-  if (progress >= 20) return "bg-orange-500"
-  return "bg-red-500"
+  const getProgressColor = (progress: number) => {
+  if (progress >= 80) return "bg-green-700"
+  if (progress >= 60) return "bg-green-600"
+  if (progress >= 40) return "bg-green-500"
+  if (progress >= 20) return "bg-green-400"
+  return "bg-green-300"
 }
 
 export function ProjectsTable() {
@@ -218,7 +218,7 @@ export function ProjectsTable() {
             {getLocalizedText(currentLang, "Comprehensive view of all active projects", "نظرة شاملة لجميع المشاريع النشطة")}
           </p>
         </div>
-        <Button className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700">
+        <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700">
           {getLocalizedText(currentLang, "Add New Project", "إضافة مشروع جديد")}
         </Button>
       </div>

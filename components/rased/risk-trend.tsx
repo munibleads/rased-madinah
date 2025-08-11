@@ -24,9 +24,9 @@ const riskData = [
 
 // Current period risk breakdown for pie chart
 const currentRiskBreakdown = [
-  { name: "High Risk", value: 3, color: "#dc2626" },
-  { name: "Medium Risk", value: 9, color: "#f59e0b" },
-  { name: "Low Risk", value: 12, color: "#10b981" },
+  { name: "High Risk", value: 3, color: "#166534" },
+  { name: "Medium Risk", value: 9, color: "#16a34a" },
+  { name: "Low Risk", value: 12, color: "#86efac" },
 ]
 
 const getConfig = (lang: string) => ({
@@ -65,18 +65,18 @@ export function RiskTrend() {
   
   // Calculate risk level based on score
   const getRiskLevel = (score: number) => {
-    if (score >= 80) return { level: "Critical", color: "text-red-600", bgColor: "bg-red-50", borderColor: "border-red-200" }
-    if (score >= 65) return { level: "High", color: "text-orange-600", bgColor: "bg-orange-50", borderColor: "border-orange-200" }
-    if (score >= 45) return { level: "Medium", color: "text-yellow-600", bgColor: "bg-yellow-50", borderColor: "border-yellow-200" }
-    return { level: "Low", color: "text-green-600", bgColor: "bg-green-50", borderColor: "border-green-200" }
+    if (score >= 80) return { level: "Critical", color: "text-green-800", bgColor: "bg-green-50", borderColor: "border-green-200" }
+    if (score >= 65) return { level: "High", color: "text-green-700", bgColor: "bg-green-50", borderColor: "border-green-200" }
+    if (score >= 45) return { level: "Medium", color: "text-green-600", bgColor: "bg-green-50", borderColor: "border-green-200" }
+    return { level: "Low", color: "text-green-500", bgColor: "bg-green-50", borderColor: "border-green-200" }
   }
 
   const riskLevel = getRiskLevel(currentScore)
 
   return (
-    <Card className="border bg-gradient-to-br from-white via-slate-50/50 to-blue-50/30 shadow-lg hover:shadow-xl transition-all duration-300 group">
+    <Card className="border bg-gradient-to-br from-white via-slate-50/50 to-green-50/30 shadow-lg hover:shadow-xl transition-all duration-300 group">
       {/* Animated gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg" />
+      <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-transparent to-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg" />
       
       <CardHeader className="pb-4 relative">
         <div className="flex items-start justify-between">
@@ -104,9 +104,9 @@ export function RiskTrend() {
             </div>
             <div className="flex items-center gap-2">
               {trend === "up" ? (
-                <TrendingUp className="h-5 w-5 text-red-500" />
+                <TrendingUp className="h-5 w-5 text-green-700" />
               ) : (
-                <TrendingDown className="h-5 w-5 text-green-500" />
+                <TrendingDown className="h-5 w-5 text-green-400" />
               )}
               <Badge variant={trend === "up" ? "destructive" : "secondary"} className="text-sm">
                 {trend === "up" ? "+" : "-"}{trendValue}
@@ -118,19 +118,19 @@ export function RiskTrend() {
         {/* Key Metrics Row */}
         <div className="grid grid-cols-4 gap-4 pt-4">
           <div className="text-center p-3 rounded-lg bg-white/60 border border-white/80 backdrop-blur-sm">
-            <div className="text-2xl font-bold text-blue-600">{currentScore}</div>
+            <div className="text-2xl font-bold text-green-600">{currentScore}</div>
             <div className="text-xs text-muted-foreground">
               {getLocalizedText(currentLang, "Risk Score", "درجة المخاطر")}
             </div>
           </div>
           <div className="text-center p-3 rounded-lg bg-white/60 border border-white/80 backdrop-blur-sm">
-            <div className="text-2xl font-bold text-red-600">{currentData.highRisk}</div>
+            <div className="text-2xl font-bold text-green-700">{currentData.highRisk}</div>
             <div className="text-xs text-muted-foreground">
               {getLocalizedText(currentLang, "High Risk", "مخاطر عالية")}
             </div>
           </div>
           <div className="text-center p-3 rounded-lg bg-white/60 border border-white/80 backdrop-blur-sm">
-            <div className="text-2xl font-bold text-orange-600">{currentData.incidents}</div>
+            <div className="text-2xl font-bold text-green-600">{currentData.incidents}</div>
             <div className="text-xs text-muted-foreground">
               {getLocalizedText(currentLang, "Incidents", "الحوادث")}
             </div>
@@ -156,13 +156,13 @@ export function RiskTrend() {
                 <AreaChart data={riskData} margin={{ top: 10, right: 10, left: 10, bottom: 10 }}>
                   <defs>
                     <linearGradient id="riskGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3} />
-                      <stop offset="50%" stopColor="#6366f1" stopOpacity={0.1} />
-                      <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#16a34a" stopOpacity={0.25} />
+                      <stop offset="50%" stopColor="#22c55e" stopOpacity={0.12} />
+                      <stop offset="95%" stopColor="#86efac" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="incidentGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#ef4444" stopOpacity={0.2} />
-                      <stop offset="95%" stopColor="#ef4444" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#16a34a" stopOpacity={0.15} />
+                      <stop offset="95%" stopColor="#16a34a" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--muted-foreground))" opacity={0.2} />
@@ -191,14 +191,14 @@ export function RiskTrend() {
                               <div className="space-y-1">
                                 <div className="flex justify-between items-center">
                                   <span className="text-sm">{getLocalizedText(currentLang, "Risk Score", "درجة المخاطر")}:</span>
-                                  <span className="font-bold text-blue-600">{data.riskScore}/100</span>
+                                  <span className="font-bold text-green-600">{data.riskScore}/100</span>
                                 </div>
                                 <div className="flex justify-between items-center">
-                                  <span className="text-sm text-red-600">{getLocalizedText(currentLang, "High Risk", "مخاطر عالية")}:</span>
+                                  <span className="text-sm text-green-700">{getLocalizedText(currentLang, "High Risk", "مخاطر عالية")}:</span>
                                   <span className="font-semibold">{data.highRisk}</span>
                                 </div>
                                 <div className="flex justify-between items-center">
-                                  <span className="text-sm text-orange-600">{getLocalizedText(currentLang, "Medium Risk", "مخاطر متوسطة")}:</span>
+                                  <span className="text-sm text-green-600">{getLocalizedText(currentLang, "Medium Risk", "مخاطر متوسطة")}:</span>
                                   <span className="font-semibold">{data.mediumRisk}</span>
                                 </div>
                                 <div className="flex justify-between items-center">
@@ -207,7 +207,7 @@ export function RiskTrend() {
                                 </div>
                                 <div className="flex justify-between items-center pt-1 border-t">
                                   <span className="text-sm">{getLocalizedText(currentLang, "Incidents", "الحوادث")}:</span>
-                                  <span className="font-semibold text-red-500">{data.incidents}</span>
+                                  <span className="font-semibold text-green-700">{data.incidents}</span>
                                 </div>
                               </div>
                             </div>
@@ -220,11 +220,11 @@ export function RiskTrend() {
                   <Area
                     type="monotone"
                     dataKey="riskScore"
-                    stroke="#3b82f6"
+                    stroke="#16a34a"
                     strokeWidth={3}
                     fill="url(#riskGradient)"
-                    dot={{ fill: "#3b82f6", strokeWidth: 2, r: 4 }}
-                    activeDot={{ r: 6, stroke: "#3b82f6", strokeWidth: 2, fill: "#ffffff" }}
+                    dot={{ fill: "#16a34a", strokeWidth: 2, r: 4 }}
+                    activeDot={{ r: 6, stroke: "#16a34a", strokeWidth: 2, fill: "#ffffff" }}
                   />
                 </AreaChart>
               </ResponsiveContainer>

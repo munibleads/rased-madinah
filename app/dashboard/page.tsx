@@ -23,8 +23,8 @@ export default function Page() {
         <div className="flex flex-1 flex-col min-h-screen">
           <div className="@container/main flex flex-1 flex-col relative">
             {/* Modern background pattern */}
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/30 via-white/10 to-purple-50/30 pointer-events-none" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.03),transparent_50%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-green-50/40 via-white/10 to-emerald-50/40 pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.06),transparent_55%)] pointer-events-none" />
             
             <div className="relative flex flex-col gap-8 py-8">              
               {/* KPI Section */}
