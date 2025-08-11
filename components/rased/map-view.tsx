@@ -21,98 +21,218 @@ type ProjectPoint = {
   company: string
   completion: number
   lastUpdate: string
+  image: string
 }
 
 const getProjects = (lang: string): ProjectPoint[] => [
-  { 
-    id: "p1", 
-    name: getLocalizedText(lang, "Stormwater Upgrade", "ترقية مياه الأمطار"), 
-    status: "on-track", 
-    lng: 39.611, 
+  {
+    id: "p1",
+    name: getLocalizedText(lang, "Stormwater Upgrade", "ترقية مياه الأمطار"),
+    status: "on-track",
+    lng: 39.611,
     lat: 24.467,
     company: getLocalizedText(lang, "Al-Madinah Construction Co.", "شركة المدينة للإنشاءات"),
     completion: 75,
-    lastUpdate: "2025-01-15"
+    lastUpdate: "2025-01-15",
+    image: "/project1.jpg",
   },
-  { 
-    id: "p2", 
-    name: getLocalizedText(lang, "Road Resurfacing Quba", "إعادة تبليط طرق قباء"), 
-    status: "delayed", 
-    lng: 39.595, 
+  {
+    id: "p2",
+    name: getLocalizedText(lang, "Road Resurfacing Quba", "إعادة تبليط طرق قباء"),
+    status: "delayed",
+    lng: 39.595,
     lat: 24.455,
     company: getLocalizedText(lang, "Saudi Roads & Transport", "الطرق والنقل السعودي"),
     completion: 45,
-    lastUpdate: "2025-01-10"
+    lastUpdate: "2025-01-10",
+    image: "/project2.jpg",
   },
-  { 
-    id: "p3", 
-    name: getLocalizedText(lang, "Street Lighting", "إنارة الشوارع"), 
-    status: "critical", 
-    lng: 39.62, 
+  {
+    id: "p3",
+    name: getLocalizedText(lang, "Street Lighting", "إنارة الشوارع"),
+    status: "critical",
+    lng: 39.62,
     lat: 24.48,
     company: getLocalizedText(lang, "Electric Power Co.", "شركة الطاقة الكهربائية"),
     completion: 30,
-    lastUpdate: "2025-01-08"
+    lastUpdate: "2025-01-08",
+    image: "/project3.jpg",
   },
-  { 
-    id: "p4", 
-    name: getLocalizedText(lang, "Smart City Initiative", "مبادرة المدينة الذكية"), 
-    status: "on-track", 
-    lng: 39.58, 
+  {
+    id: "p4",
+    name: getLocalizedText(lang, "Smart City Initiative", "مبادرة المدينة الذكية"),
+    status: "on-track",
+    lng: 39.58,
     lat: 24.475,
     company: getLocalizedText(lang, "Digital Solutions Ltd.", "الحلول الرقمية المحدودة"),
     completion: 60,
-    lastUpdate: "2025-01-12"
+    lastUpdate: "2025-01-12",
+    image: "/project4.jpg",
   },
-  { 
-    id: "p5", 
-    name: getLocalizedText(lang, "Public Park Development", "تطوير حديقة عامة"), 
-    status: "delayed", 
-    lng: 39.605, 
+  {
+    id: "p5",
+    name: getLocalizedText(lang, "Public Park Development", "تطوير حديقة عامة"),
+    status: "delayed",
+    lng: 39.605,
     lat: 24.445,
     company: getLocalizedText(lang, "Green Spaces Co.", "شركة المساحات الخضراء"),
     completion: 55,
-    lastUpdate: "2025-01-05"
+    lastUpdate: "2025-01-05",
+    image: "/project5.jpg",
   },
-  { 
-    id: "p6", 
-    name: getLocalizedText(lang, "Historical Site Restoration", "ترميم موقع تاريخي"), 
-    status: "critical", 
-    lng: 39.63, 
+  {
+    id: "p6",
+    name: getLocalizedText(lang, "Historical Site Restoration", "ترميم موقع تاريخي"),
+    status: "critical",
+    lng: 39.63,
     lat: 24.46,
     company: getLocalizedText(lang, "Heritage Preservation", "الحفاظ على التراث"),
     completion: 25,
-    lastUpdate: "2025-01-03"
+    lastUpdate: "2025-01-03",
+    image: "/project1.jpg",
   },
-  { 
-    id: "p7", 
-    name: getLocalizedText(lang, "Shopping Center Expansion", "توسيع مركز التسوق"), 
-    status: "on-track", 
-    lng: 39.59, 
+  {
+    id: "p7",
+    name: getLocalizedText(lang, "Shopping Center Expansion", "توسيع مركز التسوق"),
+    status: "on-track",
+    lng: 39.59,
     lat: 24.465,
     company: getLocalizedText(lang, "Commercial Development Co.", "شركة التطوير التجاري"),
     completion: 80,
-    lastUpdate: "2025-01-14"
+    lastUpdate: "2025-01-14",
+    image: "/project2.jpg",
   },
-  { 
-    id: "p8", 
-    name: getLocalizedText(lang, "Waste Management Facility", "منشأة إدارة النفايات"), 
-    status: "delayed", 
-    lng: 39.61, 
+  {
+    id: "p8",
+    name: getLocalizedText(lang, "Waste Management Facility", "منشأة إدارة النفايات"),
+    status: "delayed",
+    lng: 39.61,
     lat: 24.44,
     company: getLocalizedText(lang, "Environmental Services Ltd.", "خدمات البيئة المحدودة"),
     completion: 40,
-    lastUpdate: "2025-01-07"
+    lastUpdate: "2025-01-07",
+    image: "/project3.jpg",
   },
-  { 
-    id: "p9", 
-    name: getLocalizedText(lang, "Sports Complex Construction", "بناء مجمع رياضي"), 
-    status: "on-track", 
-    lng: 39.585, 
+  {
+    id: "p9",
+    name: getLocalizedText(lang, "Sports Complex Construction", "بناء مجمع رياضي"),
+    status: "on-track",
+    lng: 39.585,
     lat: 24.46,
     company: getLocalizedText(lang, "Sports Infrastructure Co.", "شركة البنية التحتية الرياضية"),
     completion: 65,
-    lastUpdate: "2025-01-13"
+    lastUpdate: "2025-01-13",
+    image: "/project4.jpg",
+  },
+  {
+    id: "p10",
+    name: getLocalizedText(lang, "Water Pipeline Upgrade", "ترقية خطوط المياه"),
+    status: "on-track",
+    lng: 39.602,
+    lat: 24.472,
+    company: getLocalizedText(lang, "Madinah Utilities Corp.", "شركة مرافق المدينة"),
+    completion: 70,
+    lastUpdate: "2025-01-11",
+    image: "/project5.jpg",
+  },
+  {
+    id: "p11",
+    name: getLocalizedText(lang, "Bridge Maintenance", "صيانة الجسر"),
+    status: "delayed",
+    lng: 39.575,
+    lat: 24.468,
+    company: getLocalizedText(lang, "Structural Works Ltd.", "الأعمال الإنشائية المحدودة"),
+    completion: 42,
+    lastUpdate: "2025-01-09",
+    image: "/project1.jpg",
+  },
+  {
+    id: "p12",
+    name: getLocalizedText(lang, "Metro Station Upgrade", "ترقية محطة المترو"),
+    status: "critical",
+    lng: 39.62,
+    lat: 24.452,
+    company: getLocalizedText(lang, "Transit Systems Co.", "شركة نظم النقل"),
+    completion: 22,
+    lastUpdate: "2025-01-06",
+    image: "/project2.jpg",
+  },
+  {
+    id: "p13",
+    name: getLocalizedText(lang, "Hospital Expansion", "توسعة المستشفى"),
+    status: "on-track",
+    lng: 39.64,
+    lat: 24.478,
+    company: getLocalizedText(lang, "Healthcare Builders", "بُناة الرعاية الصحية"),
+    completion: 58,
+    lastUpdate: "2025-01-16",
+    image: "/project3.jpg",
+  },
+  {
+    id: "p14",
+    name: getLocalizedText(lang, "University Campus Upgrade", "ترقية الحرم الجامعي"),
+    status: "delayed",
+    lng: 39.59,
+    lat: 24.49,
+    company: getLocalizedText(lang, "Academic Constructions", "الإنشاءات الأكاديمية"),
+    completion: 48,
+    lastUpdate: "2025-01-04",
+    image: "/project4.jpg",
+  },
+  {
+    id: "p15",
+    name: getLocalizedText(lang, "New Bus Depot", "إنشاء مستودع حافلات"),
+    status: "on-track",
+    lng: 39.565,
+    lat: 24.455,
+    company: getLocalizedText(lang, "Urban Mobility Co.", "شركة التنقل الحضري"),
+    completion: 67,
+    lastUpdate: "2025-01-02",
+    image: "/project5.jpg",
+  },
+  {
+    id: "p16",
+    name: getLocalizedText(lang, "Sewage Treatment Plant", "محطة معالجة الصرف الصحي"),
+    status: "critical",
+    lng: 39.6,
+    lat: 24.44,
+    company: getLocalizedText(lang, "AquaTech Services", "خدمات أكواتك"),
+    completion: 18,
+    lastUpdate: "2025-01-01",
+    image: "/project1.jpg",
+  },
+  {
+    id: "p17",
+    name: getLocalizedText(lang, "IT Data Center", "مركز بيانات تقني"),
+    status: "on-track",
+    lng: 39.653,
+    lat: 24.465,
+    company: getLocalizedText(lang, "Digital Core Ltd.", "ديجيتال كور المحدودة"),
+    completion: 72,
+    lastUpdate: "2025-01-14",
+    image: "/project2.jpg",
+  },
+  {
+    id: "p18",
+    name: getLocalizedText(lang, "Harbor Access Road", "طريق الوصول للميناء"),
+    status: "delayed",
+    lng: 39.567,
+    lat: 24.48,
+    company: getLocalizedText(lang, "Marine Logistics", "الخدمات اللوجستية البحرية"),
+    completion: 36,
+    lastUpdate: "2025-01-09",
+    image: "/project3.jpg",
+  },
+  {
+    id: "p19",
+    name: getLocalizedText(lang, "Cultural Center Build", "بناء مركز ثقافي"),
+    status: "on-track",
+    lng: 39.612,
+    lat: 24.49,
+    company: getLocalizedText(lang, "Arts & Culture Dev.", "تطوير الفنون والثقافة"),
+    completion: 63,
+    lastUpdate: "2025-01-12",
+    image: "/project4.jpg",
   },
 ]
 
@@ -405,7 +525,8 @@ export function MapView() {
                   offset: 20,
                   className: "project-popup"
                 }).setHTML(
-                  `<div style="min-width: 200px; padding: 8px;">
+                  `<div dir="${currentLang === "ar" ? "rtl" : "ltr"}" style="min-width: 220px; padding: 8px;">
+                    <img src="${p.image}" alt="${getLocalizedText(currentLang, "Project image", "صورة المشروع")}" style="width: 100%; height: 120px; object-fit: cover; border-radius: 6px; margin-bottom: 8px;" />
                     <div style="font-weight: 600; margin-bottom: 8px; font-size: 14px; color: #1f2937;">${p.name}</div>
                     <div style="margin-bottom: 6px; font-size: 12px; color: #6b7280;">
                       <strong>${getLocalizedText(currentLang, "Company", "الشركة")}:</strong> ${p.company}
@@ -449,6 +570,8 @@ export function MapView() {
               e.stopPropagation()
             })
           }
+          // Ensure the map fits its container after all DOM changes
+          try { map.resize() } catch {}
         })
 
         map.on("error", (e: unknown) => {
@@ -456,6 +579,23 @@ export function MapView() {
           setError("Failed to load map")
           setIsLoading(false)
         })
+
+        // Observe container resizes to avoid cutoff
+        try {
+          const containerEl = mapRef.current
+          if (containerEl && typeof ResizeObserver !== 'undefined') {
+            const resizeObserver = new ResizeObserver(() => {
+              try { map.resize() } catch {}
+            })
+            resizeObserver.observe(containerEl)
+            ;(map as any)._resizeObserver = resizeObserver
+          }
+        } catch {}
+
+        // Window resize fallback
+        const handleWindowResize = () => { try { map.resize() } catch {} }
+        window.addEventListener('resize', handleWindowResize)
+        ;(map as any)._windowResizeHandler = handleWindowResize
 
         mapInstance.current = map
       } catch (err) {
@@ -469,8 +609,18 @@ export function MapView() {
 
     return () => {
       if (mapInstance.current) {
-        mapInstance.current.remove()
-        mapInstance.current = null
+        try {
+          const m = mapInstance.current
+          if ((m as any)._resizeObserver) {
+            try { (m as any)._resizeObserver.disconnect() } catch {}
+          }
+          if ((m as any)._windowResizeHandler) {
+            try { window.removeEventListener('resize', (m as any)._windowResizeHandler) } catch {}
+          }
+          m.remove()
+        } finally {
+          mapInstance.current = null
+        }
       }
     }
   }, [currentLang, projects])
@@ -496,6 +646,7 @@ export function MapView() {
         map.setPaintProperty("esri-labels", "raster-opacity", 0)
       }
       console.debug("Switched map style", { style, showSatellite })
+      try { map.resize() } catch {}
     }
 
     if (map.isStyleLoaded()) apply()
@@ -511,13 +662,13 @@ export function MapView() {
 
   if (error) {
     return (
-      <Card className="overflow-hidden border bg-card shadow-sm">
+      <Card className="overflow-hidden border bg-card shadow-sm h-[640px] flex flex-col">
         <CardHeader>
           <CardTitle>
             {getLocalizedText(currentLang, "Projects Map", "خريطة المشاريع")}
           </CardTitle>
         </CardHeader>
-        <CardContent className="flex h-[420px] w-full items-center justify-center bg-muted text-muted-foreground">
+        <CardContent className="flex flex-1 w-full items-center justify-center bg-muted text-muted-foreground">
           <div className="text-center">
             <p>{getLocalizedText(currentLang, "Map failed to load", "فشل في تحميل الخريطة")}</p>
             <p className="text-sm">{error}</p>
@@ -528,18 +679,18 @@ export function MapView() {
   }
   
   return (
-    <Card className="overflow-hidden border bg-card shadow-sm">
+    <Card className="overflow-hidden border bg-card shadow-sm h-[640px] flex flex-col">
       <CardHeader>
         <CardTitle>
           {getLocalizedText(currentLang, "Projects Map", "خريطة المشاريع")}
         </CardTitle>
       </CardHeader>
-             <CardContent className="relative p-0" style={{ pointerEvents: 'auto' }}>
+             <CardContent className="relative p-0 flex-1 min-h-0" style={{ pointerEvents: 'auto' }}>
          <Tabs value={activeTab} onValueChange={(value: string) => {
            if (value === "street" || value === "satellite") {
              setActiveTab(value)
            }
-         }} className="w-full" style={{ pointerEvents: 'auto' }}>
+          }} className="w-full h-full" style={{ pointerEvents: 'auto' }}>
            <TabsList className="absolute top-4 left-4 z-20 bg-white shadow-lg border border-gray-200 rounded-lg p-1">
              <TabsTrigger value="street" className="text-sm px-4 py-2 font-medium data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-700 data-[state=inactive]:hover:text-blue-600 transition-colors flex items-center gap-2">
                <MapPin className="w-4 h-4" />
@@ -550,8 +701,8 @@ export function MapView() {
                {getLocalizedText(currentLang, "Satellite", "الأقمار الصناعية")}
              </TabsTrigger>
            </TabsList>
-           <div className="relative" style={{ pointerEvents: 'auto' }}>
-             <div ref={mapRef} className="h-[420px] w-full cursor-grab active:cursor-grabbing" style={{ pointerEvents: 'auto', userSelect: 'none' }} />
+            <div className="relative h-full min-h-0" style={{ pointerEvents: 'auto' }}>
+              <div ref={mapRef} className="h-full w-full cursor-grab active:cursor-grabbing" style={{ pointerEvents: 'auto', userSelect: 'none' }} />
              {isLoading && (
                <div className="absolute inset-0 flex items-center justify-center bg-background/80">
                  <div className="text-sm text-muted-foreground">{getLocalizedText(currentLang, "Loading map...", "جاري تحميل الخريطة...")}</div>

@@ -329,14 +329,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   className="w-full justify-between data-[slot=sidebar-menu-button]:!p-2"
                 >
                   <span className="text-sm font-medium">
-                    {getLocalizedText(currentLang, userType, userType === "Municipality" ? "البلدية" : "المقاول")}
+                    {getLocalizedText(currentLang, userType, userType === "Municipality" ? "أمانة منطقة المدينة" : "المقاول")}
                   </span>
                   <IconChevronDown className="h-4 w-4 opacity-50" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-48">
                 <DropdownMenuItem onClick={() => handleUserTypeChange("Municipality")}>
-                  {getLocalizedText(currentLang, "Municipality", "البلدية")}
+                  {getLocalizedText(currentLang, "Municipality", "أمانة منطقة المدينة")}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleUserTypeChange("Contractor")}>
                   {getLocalizedText(currentLang, "Contractor", "المقاول")}

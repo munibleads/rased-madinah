@@ -57,7 +57,7 @@ export function AIInsights() {
   const insights = getInsights(currentLang)
   
   return (
-    <Card className="border bg-card shadow-sm h-[520px] flex flex-col">
+    <Card className="border bg-card shadow-sm h-[640px] flex flex-col">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <IconBrain className="text-muted-foreground" /> 
