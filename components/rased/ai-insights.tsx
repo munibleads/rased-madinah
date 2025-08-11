@@ -20,7 +20,7 @@ const getInsights = (lang: string) => [
     impact: "medium",
   },
   {
-    title: getLocalizedText(lang, "Budget anomaly detected in stormwater program", "اكتشاف شذوذ في الميزانية في برنامج مياه الأمطار"),
+    title: getLocalizedText(lang, "Budget anomaly detected in stormwater program", "اكتشاف تفاوت في الميزانيه في برنامج مياه الامطار"),
     detail:
       getLocalizedText(lang, "Procurement invoices increased 27% WoW without matching progress. Flag vendor audit for contract SW-214.", "زادت فواتير المشتريات بنسبة 27% أسبوعياً دون تطابق في التقدم. وضع علامة على مراجعة المورد للعقد SW-214."),
     impact: "high",

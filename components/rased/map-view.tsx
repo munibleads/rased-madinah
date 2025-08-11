@@ -32,7 +32,7 @@ const getProjects = (lang: string): ProjectPoint[] => [
     lat: 24.467,
     company: getLocalizedText(lang, "Al-Madinah Construction Co.", "شركة المدينة للإنشاءات"),
     completion: 75,
-    lastUpdate: "2024-01-15"
+    lastUpdate: "2025-01-15"
   },
   { 
     id: "p2", 
@@ -42,7 +42,7 @@ const getProjects = (lang: string): ProjectPoint[] => [
     lat: 24.455,
     company: getLocalizedText(lang, "Saudi Roads & Transport", "الطرق والنقل السعودي"),
     completion: 45,
-    lastUpdate: "2024-01-10"
+    lastUpdate: "2025-01-10"
   },
   { 
     id: "p3", 
@@ -52,7 +52,7 @@ const getProjects = (lang: string): ProjectPoint[] => [
     lat: 24.48,
     company: getLocalizedText(lang, "Electric Power Co.", "شركة الطاقة الكهربائية"),
     completion: 30,
-    lastUpdate: "2024-01-08"
+    lastUpdate: "2025-01-08"
   },
   { 
     id: "p4", 
@@ -62,7 +62,7 @@ const getProjects = (lang: string): ProjectPoint[] => [
     lat: 24.475,
     company: getLocalizedText(lang, "Digital Solutions Ltd.", "الحلول الرقمية المحدودة"),
     completion: 60,
-    lastUpdate: "2024-01-12"
+    lastUpdate: "2025-01-12"
   },
   { 
     id: "p5", 
@@ -72,7 +72,7 @@ const getProjects = (lang: string): ProjectPoint[] => [
     lat: 24.445,
     company: getLocalizedText(lang, "Green Spaces Co.", "شركة المساحات الخضراء"),
     completion: 55,
-    lastUpdate: "2024-01-05"
+    lastUpdate: "2025-01-05"
   },
   { 
     id: "p6", 
@@ -82,7 +82,7 @@ const getProjects = (lang: string): ProjectPoint[] => [
     lat: 24.46,
     company: getLocalizedText(lang, "Heritage Preservation", "الحفاظ على التراث"),
     completion: 25,
-    lastUpdate: "2024-01-03"
+    lastUpdate: "2025-01-03"
   },
   { 
     id: "p7", 
@@ -92,7 +92,7 @@ const getProjects = (lang: string): ProjectPoint[] => [
     lat: 24.465,
     company: getLocalizedText(lang, "Commercial Development Co.", "شركة التطوير التجاري"),
     completion: 80,
-    lastUpdate: "2024-01-14"
+    lastUpdate: "2025-01-14"
   },
   { 
     id: "p8", 
@@ -102,7 +102,7 @@ const getProjects = (lang: string): ProjectPoint[] => [
     lat: 24.44,
     company: getLocalizedText(lang, "Environmental Services Ltd.", "خدمات البيئة المحدودة"),
     completion: 40,
-    lastUpdate: "2024-01-07"
+    lastUpdate: "2025-01-07"
   },
   { 
     id: "p9", 
@@ -112,7 +112,7 @@ const getProjects = (lang: string): ProjectPoint[] => [
     lat: 24.46,
     company: getLocalizedText(lang, "Sports Infrastructure Co.", "شركة البنية التحتية الرياضية"),
     completion: 65,
-    lastUpdate: "2024-01-13"
+    lastUpdate: "2025-01-13"
   },
 ]
 

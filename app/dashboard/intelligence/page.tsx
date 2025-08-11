@@ -449,18 +449,7 @@ export default function IntelligencePage() {
                 </div>
               </div>
 
-              {/* Row 2: Optimization, Environment, Public Safety */}
-              <div className="grid grid-cols-1 gap-4 px-4 lg:grid-cols-12 lg:px-6 items-stretch">
-                <div className="lg:col-span-4">
-                  <Optimization lang={currentLang} />
-                </div>
-                <div className="lg:col-span-4">
-                  <Environment lang={currentLang} />
-                </div>
-                <div className="lg:col-span-4">
-                  <SafetyFeed lang={currentLang} />
-                </div>
-              </div>
+
 
               {/* Row 3: Weather Impact, Live Status, Photo Analysis */}
               <div className="grid grid-cols-1 gap-4 px-4 lg:grid-cols-12 lg:px-6 items-stretch">

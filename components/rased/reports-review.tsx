@@ -44,7 +44,9 @@ type ReportStatus = "pending" | "approved" | "rejected"
 type ProjectReport = {
   id: string
   company: string
+  companyAr: string
   project: string
+  projectAr: string
   period: string
   submittedAt: string
   status: ReportStatus
@@ -62,7 +64,9 @@ export function ReportsReview() {
     {
       id: "r-1001",
       company: "Al-Noor Contractors",
-      project: "Yanbu Road Widening",
+      companyAr: "شركة النور للمقاولات",
+      project: "Al-Anbariyah Road Widening",
+      projectAr: "توسيع طريق العنبرية",
       period: "2025-W26",
       submittedAt: "2025-06-29 14:12",
       status: "pending",
@@ -71,7 +75,9 @@ export function ReportsReview() {
     {
       id: "r-1002",
       company: "Quba Infra Co.",
-      project: "Stormwater Program SW-214",
+      companyAr: "شركة قباء للبنية التحتية",
+      project: "Quba Stormwater Management",
+      projectAr: "إدارة مياه الأمطار في قباء",
       period: "2025-W25",
       submittedAt: "2025-06-22 09:41",
       status: "approved",
@@ -80,7 +86,9 @@ export function ReportsReview() {
     {
       id: "r-1003",
       company: "Haram Dev Group",
-      project: "Medina Green Corridors",
+      companyAr: "مجموعة الحرم للتطوير",
+      project: "Al-Haramain Green Corridors",
+      projectAr: "الممرات الخضراء في الحرمين",
       period: "2025-Q2",
       submittedAt: "2025-06-30 18:05",
       status: "pending",
@@ -89,7 +97,9 @@ export function ReportsReview() {
     {
       id: "r-1004",
       company: "Uhud Builders",
-      project: "Bridge Rehab BR-08",
+      companyAr: "بناؤو أحد",
+      project: "Uhud Mountain Bridge Rehabilitation",
+      projectAr: "إعادة تأهيل جبل أحد",
       period: "2025-W24",
       submittedAt: "2025-06-16 11:08",
       status: "rejected",
@@ -98,7 +108,9 @@ export function ReportsReview() {
     {
       id: "r-1005",
       company: "Madinah Utilities",
-      project: "Water Network Upgrade Phase 2",
+      companyAr: "مرافق المدينة المنورة",
+      project: "Al-Awali Water Network Upgrade",
+      projectAr: "ترقية شبكة المياه في العوالي",
       period: "2025-W26",
       submittedAt: "2025-06-29 10:02",
       status: "pending",
@@ -107,7 +119,9 @@ export function ReportsReview() {
     {
       id: "r-1006",
       company: "Al Badr Engineering",
-      project: "Street Lighting Modernization",
+      companyAr: "الهندسة البدر",
+      project: "Al-Aziziyah Street Lighting",
+      projectAr: "إنارة شوارع العزيزية",
       period: "2025-W25",
       submittedAt: "2025-06-23 16:27",
       status: "approved",
@@ -116,7 +130,9 @@ export function ReportsReview() {
     {
       id: "r-1007",
       company: "Qibla Roads",
-      project: "Asphalt Resurfacing Zone 4",
+      companyAr: "طرق القبلة",
+      project: "Al-Baqi Asphalt Resurfacing",
+      projectAr: "إعادة رصف الإسفلت في البقيع",
       period: "2025-W24",
       submittedAt: "2025-06-17 08:11",
       status: "rejected",
@@ -125,7 +141,9 @@ export function ReportsReview() {
     {
       id: "r-1008",
       company: "Anwar Construction",
-      project: "Pedestrian Walkways Expansion",
+      companyAr: "الأنوار للإنشاءات",
+      project: "Al-Masjid Al-Nabawi Walkways",
+      projectAr: "ممرات المسجد النبوي",
       period: "2025-Q2",
       submittedAt: "2025-06-30 12:46",
       status: "pending",
@@ -134,7 +152,9 @@ export function ReportsReview() {
     {
       id: "r-1009",
       company: "Salam Builders",
-      project: "Parks Revitalization Lot C",
+      companyAr: "بناؤو السلام",
+      project: "Al-Rawdah Park Revitalization",
+      projectAr: "إحياء حديقة الروضة",
       period: "2025-W25",
       submittedAt: "2025-06-21 09:59",
       status: "approved",
@@ -143,7 +163,9 @@ export function ReportsReview() {
     {
       id: "r-1010",
       company: "Hijaz Developments",
-      project: "Waste Management Pilot",
+      companyAr: "تطويرات الحجاز",
+      project: "Al-Aqiq Waste Management",
+      projectAr: "إدارة النفايات في العقيق",
       period: "2025-W23",
       submittedAt: "2025-06-10 15:37",
       status: "pending",
@@ -152,7 +174,9 @@ export function ReportsReview() {
     {
       id: "r-1011",
       company: "Al Rawdah Group",
-      project: "Traffic Signal Optimization",
+      companyAr: "مجموعة الروضة",
+      project: "Al-Haram Traffic Signal Optimization",
+      projectAr: "تحسين إشارات المرور في الحرم",
       period: "2025-W26",
       submittedAt: "2025-06-28 19:02",
       status: "approved",
@@ -161,7 +185,9 @@ export function ReportsReview() {
     {
       id: "r-1012",
       company: "Nakhil Infra",
-      project: "Canal Dredging CD-05",
+      companyAr: "بنية النخيل التحتية",
+      project: "Al-Nakheel Canal Dredging",
+      projectAr: "تجريف قناة النخيل",
       period: "2025-W24",
       submittedAt: "2025-06-15 07:25",
       status: "rejected",
@@ -170,7 +196,9 @@ export function ReportsReview() {
     {
       id: "r-1013",
       company: "Zamzam Services",
-      project: "Smart Meter Rollout",
+      companyAr: "خدمات زمزم",
+      project: "Al-Haram Smart Meter Installation",
+      projectAr: "تركيب العدادات الذكية في الحرم",
       period: "2025-Q2",
       submittedAt: "2025-06-27 20:10",
       status: "pending",
@@ -179,7 +207,9 @@ export function ReportsReview() {
     {
       id: "r-1014",
       company: "Shifa Contractors",
-      project: "Clinic Renovation Package A",
+      companyAr: "مقاولو الشفاء",
+      project: "Al-Madinah Medical Center",
+      projectAr: "المركز الطبي في المدينة المنورة",
       period: "2025-W25",
       submittedAt: "2025-06-22 13:44",
       status: "approved",
@@ -297,8 +327,8 @@ export function ReportsReview() {
           <TableBody>
             {paged.map((r) => (
               <TableRow key={r.id} className="align-top">
-                <TableCell>{r.company}</TableCell>
-                <TableCell className="max-w-[280px] truncate">{r.project}</TableCell>
+                <TableCell>{currentLang === "ar" ? r.companyAr : r.company}</TableCell>
+                <TableCell className="max-w-[280px] truncate">{currentLang === "ar" ? r.projectAr : r.project}</TableCell>
                 <TableCell>
                   <Badge variant="outline">{r.period}</Badge>
                 </TableCell>
@@ -363,11 +393,11 @@ export function ReportsReview() {
                         <div className="px-4 py-2 grid gap-2 text-sm">
                           <div className="grid grid-cols-3 gap-2 items-center">
                             <div className="text-muted-foreground">{getLocalizedText(currentLang, "Company", "الشركة")}</div>
-                            <div className="col-span-2 font-medium">{r.company}</div>
+                            <div className="col-span-2 font-medium">{currentLang === "ar" ? r.companyAr : r.company}</div>
                           </div>
                           <div className="grid grid-cols-3 gap-2 items-center">
                             <div className="text-muted-foreground">{getLocalizedText(currentLang, "Project", "المشروع")}</div>
-                            <div className="col-span-2 font-medium">{r.project}</div>
+                            <div className="col-span-2 font-medium">{currentLang === "ar" ? r.projectAr : r.project}</div>
                           </div>
                           <div className="grid grid-cols-3 gap-2 items-center">
                             <div className="text-muted-foreground">{getLocalizedText(currentLang, "Period", "الفترة")}</div>

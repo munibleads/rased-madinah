@@ -47,7 +47,7 @@ export function ProjectStats() {
             </div>
           </div>
           <CardTitle className="text-3xl @[350px]/card:text-4xl font-bold tabular-nums leading-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            875
+            6
           </CardTitle>
           <div>
             <Badge variant="secondary" className="bg-blue-50/80 text-blue-700 border-blue-200/50 whitespace-nowrap">
@@ -71,7 +71,7 @@ export function ProjectStats() {
             </div>
           </div>
           <CardTitle className="text-3xl @[350px]/card:text-4xl font-bold tabular-nums leading-tight bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-            42
+            1
           </CardTitle>
           <div>
             <Badge variant="secondary" className="bg-emerald-50/80 text-emerald-700 border-emerald-200/50 whitespace-nowrap">
@@ -96,7 +96,7 @@ export function ProjectStats() {
             </div>
           </div>
           <CardTitle className="text-3xl @[350px]/card:text-4xl font-bold tabular-nums leading-tight bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
-            78%
+            85%
           </CardTitle>
           <div>
             <Badge variant="secondary" className="bg-amber-50/80 text-amber-700 border-amber-200/50 whitespace-nowrap">
