@@ -35,7 +35,7 @@ export function SiteHeader() {
   return (
     <header className="flex h-(--header-height) shrink-0 items-center gap-2 border-b border-white/20 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height) bg-white/70 backdrop-blur-md supports-[backdrop-filter]:bg-white/50 relative">
       {/* Glass effect background */}
-       <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-white/80 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-white/80 backdrop-blur-sm" />
       
       <div className="flex w-full items-center gap-2 px-6 lg:gap-3 lg:px-8 relative z-10">
         <SidebarTrigger className="-ml-1 rtl:-mr-1 rtl:ml-0 hover:bg-white/50 transition-colors" />
@@ -53,10 +53,10 @@ export function SiteHeader() {
             height={55}
             className="rounded-full relative"
           />
-          <div className="text-lg font-bold bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
+          <div className="text-lg font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
             {getLocalizedText(currentLang, "Rased", "راصد")}
           </div>
-          <Badge variant="secondary" className="bg-green-100/80 text-green-700 text-xs font-medium px-2 py-0.5">
+          <Badge variant="secondary" className="bg-indigo-100/80 text-indigo-700 text-xs font-medium px-2 py-0.5">
             v2.1
           </Badge>
         </div>
@@ -83,7 +83,7 @@ export function SiteHeader() {
           
           <Button variant="ghost" size="sm" className="relative hover:bg-white/50 transition-colors">
             <IconBell className="w-4 h-4" />
-            <span className="absolute -top-1 -right-1 rtl:-left-1 rtl:right-auto w-2 h-2 bg-green-500 rounded-full" />
+            <span className="absolute -top-1 -right-1 rtl:-left-1 rtl:right-auto w-2 h-2 bg-red-500 rounded-full" />
           </Button>
           
           <Separator orientation="vertical" className="mx-2 h-5 border-white/30" />

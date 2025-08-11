@@ -20,9 +20,9 @@
   --popover: rgba(255, 255, 255, 0.95);
   --popover-foreground: #0f172a;
   
-  /* Enhanced primary colors - green palette */
-  --primary: linear-gradient(135deg, #10b981 0%, #16a34a 100%);
-  --primary-solid: #16a34a;
+  /* Enhanced primary colors */
+  --primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --primary-solid: #6366f1;
   --primary-foreground: #ffffff;
   
   /* Softer secondary */
@@ -33,16 +33,16 @@
   --muted: rgba(248, 250, 252, 0.8);
   --muted-foreground: #64748b;
   
-  --accent: rgba(240, 253, 244, 0.85);
-  --accent-foreground: #065f46;
+  --accent: rgba(236, 254, 255, 0.8);
+  --accent-foreground: #0e7490;
   
-  --destructive: #16a34a;
+  --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   
   /* Modern borders */
   --border: rgba(148, 163, 184, 0.15);
   --input: rgba(148, 163, 184, 0.1);
-  --ring: #16a34a;
+  --ring: #6366f1;
   --radius: 0.875rem;
   
   /* Glassmorphism effects */

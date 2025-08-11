@@ -13,7 +13,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 export function DashboardFilters() {
   return (
     <Card className="@container/card border-0 glass-card relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-green-500/5 to-teal-500/5" />
+      <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 via-purple-500/5 to-teal-500/5" />
       <CardContent className="flex flex-col gap-6 p-6 @[700px]/card:flex-row @[700px]/card:items-end @[700px]/card:justify-between relative">
         <div className="grid w-full grid-cols-1 gap-5 @[700px]/card:grid-cols-4">
           <div className="flex flex-col gap-3">
@@ -74,21 +74,21 @@ export function DashboardFilters() {
           <div className="flex flex-col gap-3">
             <Label className="text-sm font-semibold text-foreground">Risk Focus</Label>
             <ToggleGroup type="multiple" variant="outline" className="flex gap-2">
-            <ToggleGroupItem 
+              <ToggleGroupItem 
                 value="safety" 
-                className="data-[state=on]:bg-green-100 data-[state=on]:text-green-700 data-[state=on]:border-green-200 bg-white/80 border-white/30 hover:bg-white/90 transition-all"
+                className="data-[state=on]:bg-red-100 data-[state=on]:text-red-700 data-[state=on]:border-red-200 bg-white/80 border-white/30 hover:bg-white/90 transition-all"
               >
                 Safety
               </ToggleGroupItem>
               <ToggleGroupItem 
                 value="budget" 
-                className="data-[state=on]:bg-green-100 data-[state=on]:text-green-700 data-[state=on]:border-green-200 bg-white/80 border-white/30 hover:bg-white/90 transition-all"
+                className="data-[state=on]:bg-amber-100 data-[state=on]:text-amber-700 data-[state=on]:border-amber-200 bg-white/80 border-white/30 hover:bg-white/90 transition-all"
               >
                 Budget
               </ToggleGroupItem>
               <ToggleGroupItem 
                 value="schedule" 
-                className="data-[state=on]:bg-green-100 data-[state=on]:text-green-700 data-[state=on]:border-green-200 bg-white/80 border-white/30 hover:bg-white/90 transition-all"
+                className="data-[state=on]:bg-blue-100 data-[state=on]:text-blue-700 data-[state=on]:border-blue-200 bg-white/80 border-white/30 hover:bg-white/90 transition-all"
               >
                 Schedule
               </ToggleGroupItem>

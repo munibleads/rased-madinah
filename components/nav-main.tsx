@@ -28,10 +28,10 @@ export function NavMain({
               <SidebarMenuButton
                 asChild
                 tooltip={item.title}
-                className="group data-[slot=sidebar-menu-button]:h-10 data-[slot=sidebar-menu-button]:rounded-xl data-[slot=sidebar-menu-button]:px-3 data-[slot=sidebar-menu-button]:text-sm hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 dark:hover:from-emerald-900/20 dark:hover:to-green-900/20 transition-colors"
+                className="group data-[slot=sidebar-menu-button]:h-10 data-[slot=sidebar-menu-button]:rounded-xl data-[slot=sidebar-menu-button]:px-3 data-[slot=sidebar-menu-button]:text-sm hover:bg-gradient-to-r hover:from-indigo-50 hover:to-fuchsia-50 dark:hover:from-indigo-900/30 dark:hover:to-fuchsia-900/30 transition-colors"
               >
                 <a href={item.url} className="flex items-center gap-2 rtl:flex-row-reverse">
-                  {item.icon && <item.icon className="text-green-600 group-hover:text-emerald-600 dark:text-green-400 dark:group-hover:text-emerald-400" />}
+                  {item.icon && <item.icon className="text-indigo-600 group-hover:text-fuchsia-600 dark:text-indigo-400 dark:group-hover:text-fuchsia-400" />}
                   <span className="font-medium">{item.title}</span>
                 </a>
               </SidebarMenuButton>
