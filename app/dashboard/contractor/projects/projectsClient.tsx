@@ -4,7 +4,6 @@ import * as React from "react"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
-import { ProjectsOverview } from "@/components/rased/projects-overview"
 import { ProjectsTable } from "@/components/rased/projects-table"
 import { ProjectStats } from "@/components/rased/project-stats"
 
@@ -46,9 +45,6 @@ export default function ProjectsPageClient({ initialLang }: ProjectsPageClientPr
                 <ProjectStats />
               </div>
 
-              <div className="px-6 lg:px-8">
-                <ProjectsOverview />
-              </div>
 
               <div className="px-6 lg:px-8">
                 <ProjectsTable />

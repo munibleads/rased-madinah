@@ -1,7 +1,7 @@
 "use client"
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -18,12 +18,102 @@ type ProjectPoint = {
   status: "on-track" | "delayed" | "critical"
   lng: number
   lat: number
+  company: string
+  completion: number
+  lastUpdate: string
 }
 
 const getProjects = (lang: string): ProjectPoint[] => [
-  { id: "p1", name: getLocalizedText(lang, "Stormwater Upgrade", "ترقية مياه الأمطار"), status: "on-track", lng: 39.611, lat: 24.467 },
-  { id: "p2", name: getLocalizedText(lang, "Road Resurfacing Quba", "إعادة تبليط طرق قباء"), status: "delayed", lng: 39.595, lat: 24.455 },
-  { id: "p3", name: getLocalizedText(lang, "Street Lighting", "إنارة الشوارع"), status: "critical", lng: 39.62, lat: 24.48 },
+  { 
+    id: "p1", 
+    name: getLocalizedText(lang, "Stormwater Upgrade", "ترقية مياه الأمطار"), 
+    status: "on-track", 
+    lng: 39.611, 
+    lat: 24.467,
+    company: getLocalizedText(lang, "Al-Madinah Construction Co.", "شركة المدينة للإنشاءات"),
+    completion: 75,
+    lastUpdate: "2024-01-15"
+  },
+  { 
+    id: "p2", 
+    name: getLocalizedText(lang, "Road Resurfacing Quba", "إعادة تبليط طرق قباء"), 
+    status: "delayed", 
+    lng: 39.595, 
+    lat: 24.455,
+    company: getLocalizedText(lang, "Saudi Roads & Transport", "الطرق والنقل السعودي"),
+    completion: 45,
+    lastUpdate: "2024-01-10"
+  },
+  { 
+    id: "p3", 
+    name: getLocalizedText(lang, "Street Lighting", "إنارة الشوارع"), 
+    status: "critical", 
+    lng: 39.62, 
+    lat: 24.48,
+    company: getLocalizedText(lang, "Electric Power Co.", "شركة الطاقة الكهربائية"),
+    completion: 30,
+    lastUpdate: "2024-01-08"
+  },
+  { 
+    id: "p4", 
+    name: getLocalizedText(lang, "Smart City Initiative", "مبادرة المدينة الذكية"), 
+    status: "on-track", 
+    lng: 39.58, 
+    lat: 24.475,
+    company: getLocalizedText(lang, "Digital Solutions Ltd.", "الحلول الرقمية المحدودة"),
+    completion: 60,
+    lastUpdate: "2024-01-12"
+  },
+  { 
+    id: "p5", 
+    name: getLocalizedText(lang, "Public Park Development", "تطوير حديقة عامة"), 
+    status: "delayed", 
+    lng: 39.605, 
+    lat: 24.445,
+    company: getLocalizedText(lang, "Green Spaces Co.", "شركة المساحات الخضراء"),
+    completion: 55,
+    lastUpdate: "2024-01-05"
+  },
+  { 
+    id: "p6", 
+    name: getLocalizedText(lang, "Historical Site Restoration", "ترميم موقع تاريخي"), 
+    status: "critical", 
+    lng: 39.63, 
+    lat: 24.46,
+    company: getLocalizedText(lang, "Heritage Preservation", "الحفاظ على التراث"),
+    completion: 25,
+    lastUpdate: "2024-01-03"
+  },
+  { 
+    id: "p7", 
+    name: getLocalizedText(lang, "Shopping Center Expansion", "توسيع مركز التسوق"), 
+    status: "on-track", 
+    lng: 39.59, 
+    lat: 24.465,
+    company: getLocalizedText(lang, "Commercial Development Co.", "شركة التطوير التجاري"),
+    completion: 80,
+    lastUpdate: "2024-01-14"
+  },
+  { 
+    id: "p8", 
+    name: getLocalizedText(lang, "Waste Management Facility", "منشأة إدارة النفايات"), 
+    status: "delayed", 
+    lng: 39.61, 
+    lat: 24.44,
+    company: getLocalizedText(lang, "Environmental Services Ltd.", "خدمات البيئة المحدودة"),
+    completion: 40,
+    lastUpdate: "2024-01-07"
+  },
+  { 
+    id: "p9", 
+    name: getLocalizedText(lang, "Sports Complex Construction", "بناء مجمع رياضي"), 
+    status: "on-track", 
+    lng: 39.585, 
+    lat: 24.46,
+    company: getLocalizedText(lang, "Sports Infrastructure Co.", "شركة البنية التحتية الرياضية"),
+    completion: 65,
+    lastUpdate: "2024-01-13"
+  },
 ]
 
 export function MapView() {
@@ -51,7 +141,7 @@ export function MapView() {
     return () => observer.disconnect()
   }, [])
   
-  const projects = getProjects(currentLang)
+  const projects = useMemo<ProjectPoint[]>(() => getProjects(currentLang), [currentLang])
 
   useEffect(() => {
     let maplibregl: any
@@ -83,6 +173,7 @@ export function MapView() {
                 type: "raster",
                 tiles: [
                   "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                  "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
                 ],
                 tileSize: 256,
                 attribution: "© Esri — Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community"
@@ -91,6 +182,7 @@ export function MapView() {
                 type: "raster",
                 tiles: [
                   "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
+                  "https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}"
                 ],
                 tileSize: 256,
                 attribution: "© Esri"
@@ -128,6 +220,24 @@ export function MapView() {
 
         map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right")
         map.addControl(new maplibregl.ScaleControl({ unit: "metric" }))
+        
+        // Add custom CSS for popup styling
+        const style = document.createElement('style')
+        style.textContent = `
+          .project-popup {
+            z-index: 10000 !important;
+          }
+          .project-popup .maplibregl-popup-content {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e5e7eb;
+          }
+          .project-popup .maplibregl-popup-tip {
+            border-top-color: #e5e7eb;
+          }
+        `
+        document.head.appendChild(style)
         
         // Add directional pan controls
         const panControl = document.createElement("div")
@@ -250,6 +360,15 @@ export function MapView() {
 
         map.on("load", () => {
           setIsLoading(false)
+          // Ensure correct layer ordering (imagery below labels)
+          try {
+            if (map.getLayer("esri-satellite") && map.getLayer("esri-labels")) {
+              map.moveLayer("esri-satellite", "esri-labels")
+            }
+          } catch (e) {
+            console.warn("Layer order adjustment failed:", e)
+          }
+          // Initial style is street by default; subsequent changes handled by effect
           
           // Add simple project markers
           for (const p of projects) {
@@ -281,8 +400,26 @@ export function MapView() {
             const marker = new maplibregl.Marker({ element: el })
               .setLngLat([p.lng, p.lat])
               .setPopup(
-                new maplibregl.Popup({ closeButton: false, offset: 8 }).setHTML(
-                  `<div style="font-weight:600; margin-bottom:4px;">${p.name}</div><div style="font-size:12px; opacity:0.7;">${getLocalizedText(currentLang, "Status", "الحالة")}: ${getLocalizedText(currentLang, p.status.replace('-', ' '), p.status === "on-track" ? "على المسار الصحيح" : p.status === "delayed" ? "متأخر" : "حرج")}</div>`
+                new maplibregl.Popup({ 
+                  closeButton: false, 
+                  offset: 20,
+                  className: "project-popup"
+                }).setHTML(
+                  `<div style="min-width: 200px; padding: 8px;">
+                    <div style="font-weight: 600; margin-bottom: 8px; font-size: 14px; color: #1f2937;">${p.name}</div>
+                    <div style="margin-bottom: 6px; font-size: 12px; color: #6b7280;">
+                      <strong>${getLocalizedText(currentLang, "Company", "الشركة")}:</strong> ${p.company}
+                    </div>
+                    <div style="margin-bottom: 6px; font-size: 12px; color: #6b7280;">
+                      <strong>${getLocalizedText(currentLang, "Completion", "نسبة الإنجاز")}:</strong> ${p.completion}%
+                    </div>
+                    <div style="margin-bottom: 6px; font-size: 12px; color: #6b7280;">
+                      <strong>${getLocalizedText(currentLang, "Last Update", "آخر تحديث")}:</strong> ${p.lastUpdate}
+                    </div>
+                    <div style="font-size: 12px; font-weight: 500; padding: 4px 8px; border-radius: 4px; display: inline-block; background: ${p.status === "critical" ? "#fef2f2" : p.status === "delayed" ? "#fffbeb" : "#f0fdf4"}; color: ${p.status === "critical" ? "#dc2626" : p.status === "delayed" ? "#d97706" : "#16a34a"}; border: 1px solid ${p.status === "critical" ? "#fecaca" : p.status === "delayed" ? "#fed7aa" : "#bbf7d0"};">
+                      ${getLocalizedText(currentLang, p.status.replace('-', ' '), p.status === "on-track" ? "على المسار الصحيح" : p.status === "delayed" ? "متأخر" : "حرج")}
+                    </div>
+                  </div>`
                 )
               )
               .addTo(map)
@@ -341,18 +478,28 @@ export function MapView() {
   // Function to switch between map styles
   const switchMapStyle = (style: "street" | "satellite") => {
     if (!mapInstance.current) return
-    
     const map = mapInstance.current
-    
-    if (style === "satellite") {
-      map.setPaintProperty("osm", "raster-opacity", 0)
-      map.setPaintProperty("esri-satellite", "raster-opacity", 1)
-      map.setPaintProperty("esri-labels", "raster-opacity", 0.8)
-    } else {
-      map.setPaintProperty("osm", "raster-opacity", 1)
-      map.setPaintProperty("esri-satellite", "raster-opacity", 0)
-      map.setPaintProperty("esri-labels", "raster-opacity", 0)
+
+    const apply = () => {
+      const showSatellite = style === "satellite"
+      if (map.getLayer("osm")) {
+        map.setLayoutProperty("osm", "visibility", showSatellite ? "none" : "visible")
+        map.setPaintProperty("osm", "raster-opacity", showSatellite ? 0 : 1)
+      }
+      if (map.getLayer("esri-satellite")) {
+        map.setLayoutProperty("esri-satellite", "visibility", showSatellite ? "visible" : "none")
+        map.setPaintProperty("esri-satellite", "raster-opacity", showSatellite ? 1 : 0)
+      }
+      if (map.getLayer("esri-labels")) {
+        // Hide labels overlay in satellite to avoid opaque reference tiles covering imagery
+        map.setLayoutProperty("esri-labels", "visibility", showSatellite ? "none" : "none")
+        map.setPaintProperty("esri-labels", "raster-opacity", 0)
+      }
+      console.debug("Switched map style", { style, showSatellite })
     }
+
+    if (map.isStyleLoaded()) apply()
+    else map.once("load", apply)
   }
 
   // Effect to switch map style when activeTab changes

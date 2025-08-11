@@ -6,6 +6,7 @@ import { MapView } from "@/components/rased/map-view"
 import { AIInsights } from "@/components/rased/ai-insights"
 import { RiskTrend } from "@/components/rased/risk-trend"
 import { GanttTimeline } from "@/components/rased/gantt-timeline"
+import { ReportsReview } from "@/components/rased/reports-review"
 
 export default function Page() {
   return (
@@ -45,6 +46,11 @@ export default function Page() {
               <div className="grid grid-cols-1 gap-8 px-6 lg:grid-cols-2 lg:px-8">
                 <RiskTrend />
                 <GanttTimeline />
+              </div>
+
+              {/* Reports Review Section */}
+              <div className="px-6 lg:px-8 pb-8">
+                <ReportsReview />
               </div>
             </div>
           </div>

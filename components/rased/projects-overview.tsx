@@ -105,24 +105,24 @@ export function ProjectsOverview() {
         {projectCategories.map((category, index) => (
           <Card key={index} className="group relative overflow-hidden border-0 glass-card hover:scale-[1.02] transition-all duration-300">
             <div className={`absolute inset-0 bg-gradient-to-br ${category.bgColor}`} />
-            <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${category.bgColor} rounded-full -translate-y-10 translate-x-10`} />
+            <div className={`absolute top-0 right-0 w-12 h-12 bg-gradient-to-br ${category.bgColor} rounded-full -translate-y-6 translate-x-6`} />
             
-            <CardHeader className="relative pb-2 px-4 pt-4">
+            <CardHeader className="relative pb-0.5 px-3 pt-2">
               <div className="flex items-center justify-between">
-                <div className={`p-2 rounded-lg bg-gradient-to-br ${category.bgColor} backdrop-blur-sm`}>
-                  <category.icon className={`w-4 h-4 ${category.textColor}`} />
+                <div className={`p-1 rounded-lg bg-gradient-to-br ${category.bgColor} backdrop-blur-sm`}>
+                  <category.icon className={`w-3 h-3 ${category.textColor}`} />
                 </div>
-                <Badge variant="secondary" className={`bg-gradient-to-r ${category.bgColor} ${category.borderColor} ${category.textColor} text-xs px-2 py-0.5`}>
+                <Badge variant="secondary" className={`bg-gradient-to-r ${category.bgColor} ${category.borderColor} ${category.textColor} text-xs px-1 py-0`}>
                   {category.count}
                 </Badge>
               </div>
             </CardHeader>
             
-            <CardContent className="relative pt-0 px-4 pb-4">
-              <CardTitle className={`text-base font-semibold bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
+            <CardContent className="relative pt-0 px-3 pb-2">
+              <CardTitle className={`text-sm font-semibold bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
                 {getLocalizedText(currentLang, category.title, category.titleAr)}
               </CardTitle>
-              <CardDescription className="text-xs text-muted-foreground mt-0.5">
+              <CardDescription className="text-xs text-muted-foreground mt-0">
                 {getLocalizedText(currentLang, `${category.count} active projects`, `${category.count} مشروع نشط`)}
               </CardDescription>
             </CardContent>
@@ -146,40 +146,40 @@ export function ProjectsOverview() {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium">{getLocalizedText(currentLang, "Planning", "التخطيط")}</span>
-                <span className="text-sm text-muted-foreground">12 projects</span>
+                <span className="text-sm text-muted-foreground">18 projects</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-blue-600 h-2 rounded-full" style={{ width: '25%' }}></div>
+                <div className="bg-blue-600 h-2 rounded-full" style={{ width: '30%' }}></div>
               </div>
             </div>
             
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium">{getLocalizedText(currentLang, "In Progress", "قيد التنفيذ")}</span>
-                <span className="text-sm text-muted-foreground">23 projects</span>
+                <span className="text-sm text-muted-foreground">32 projects</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-emerald-600 h-2 rounded-full" style={{ width: '49%' }}></div>
+                <div className="bg-emerald-600 h-2 rounded-full" style={{ width: '53%' }}></div>
               </div>
             </div>
             
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium">{getLocalizedText(currentLang, "Review", "مراجعة")}</span>
-                <span className="text-sm text-muted-foreground">8 projects</span>
+                <span className="text-sm text-muted-foreground">15 projects</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-amber-600 h-2 rounded-full" style={{ width: '17%' }}></div>
+                <div className="bg-amber-600 h-2 rounded-full" style={{ width: '25%' }}></div>
               </div>
             </div>
             
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium">{getLocalizedText(currentLang, "Completed", "مكتمل")}</span>
-                <span className="text-sm text-muted-foreground">4 projects</span>
+                <span className="text-sm text-muted-foreground">8 projects</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-purple-600 h-2 rounded-full" style={{ width: '9%' }}></div>
+                <div className="bg-purple-600 h-2 rounded-full" style={{ width: '13%' }}></div>
               </div>
             </div>
           </CardContent>
@@ -198,41 +198,41 @@ export function ProjectsOverview() {
           <CardContent className="space-y-4">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">{getLocalizedText(currentLang, "Q1 2024", "الربع الأول 2024")}</span>
+                <span className="text-sm font-medium">{getLocalizedText(currentLang, "Q1 2025", "الربع الأول 2025")}</span>
+                <span className="text-sm text-muted-foreground">12 projects</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="bg-emerald-600 h-2 rounded-full" style={{ width: '20%' }}></div>
+              </div>
+            </div>
+            
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">{getLocalizedText(currentLang, "Q2 2025", "الربع الثاني 2025")}</span>
+                <span className="text-sm text-muted-foreground">18 projects</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="bg-blue-600 h-2 rounded-full" style={{ width: '30%' }}></div>
+              </div>
+            </div>
+            
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">{getLocalizedText(currentLang, "Q3 2025", "الربع الثالث 2025")}</span>
+                <span className="text-sm text-muted-foreground">22 projects</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="bg-amber-600 h-2 rounded-full" style={{ width: '37%' }}></div>
+              </div>
+            </div>
+            
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">{getLocalizedText(currentLang, "Q4 2025", "الربع الرابع 2025")}</span>
                 <span className="text-sm text-muted-foreground">8 projects</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-emerald-600 h-2 rounded-full" style={{ width: '17%' }}></div>
-              </div>
-            </div>
-            
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">{getLocalizedText(currentLang, "Q2 2024", "الربع الثاني 2024")}</span>
-                <span className="text-sm text-muted-foreground">15 projects</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-blue-600 h-2 rounded-full" style={{ width: '32%' }}></div>
-              </div>
-            </div>
-            
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">{getLocalizedText(currentLang, "Q3 2024", "الربع الثالث 2024")}</span>
-                <span className="text-sm text-muted-foreground">14 projects</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-amber-600 h-2 rounded-full" style={{ width: '30%' }}></div>
-              </div>
-            </div>
-            
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">{getLocalizedText(currentLang, "Q4 2024", "الربع الرابع 2024")}</span>
-                <span className="text-sm text-muted-foreground">10 projects</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-purple-600 h-2 rounded-full" style={{ width: '21%' }}></div>
+                <div className="bg-purple-600 h-2 rounded-full" style={{ width: '13%' }}></div>
               </div>
             </div>
           </CardContent>

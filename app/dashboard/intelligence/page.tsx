@@ -430,7 +430,6 @@ export default function IntelligencePage() {
             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
               <div className="px-4 lg:px-6">
                 <div className="flex items-center gap-3">
-                  <h1 className="text-xl font-semibold">{getLocalizedText(currentLang, "Intelligence", "الذكاء الاصطناعي")}</h1>
                   <Badge variant="outline">{getLocalizedText(currentLang, "Real-time", "في الوقت الفعلي")}</Badge>
                   <div className="ml-auto flex items-center gap-2">
                     <Button size="sm" variant="outline">{getLocalizedText(currentLang, "Export", "تصدير")}</Button>

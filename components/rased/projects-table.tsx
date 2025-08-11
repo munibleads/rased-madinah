@@ -1,6 +1,6 @@
 "use client"
 
-import { IconCalendar, IconClock, IconUsers } from "@tabler/icons-react"
+import { IconCalendar, IconClock } from "@tabler/icons-react"
 import { useEffect, useState } from "react"
 
 import { Badge } from "@/components/ui/badge"
@@ -30,7 +30,10 @@ const projectsData = [
     teamSize: 24,
     location: "Riyadh",
     locationAr: "الرياض",
-    priority: "High"
+    priority: "High",
+    contractor: "Al-Bina Construction Co.",
+    contractorAr: "شركة البناء للإنشاءات",
+    contractName: "CON-2024-001"
   },
   {
     id: "PRJ-002",
@@ -47,7 +50,10 @@ const projectsData = [
     teamSize: 18,
     location: "Jeddah",
     locationAr: "جدة",
-    priority: "Medium"
+    priority: "Medium",
+    contractor: "Modern Development Group",
+    contractorAr: "مجموعة التطوير الحديثة",
+    contractName: "CON-2024-015"
   },
   {
     id: "PRJ-003",
@@ -64,7 +70,10 @@ const projectsData = [
     teamSize: 32,
     location: "Jubail",
     locationAr: "الجبيل",
-    priority: "High"
+    priority: "High",
+    contractor: "Industrial Builders Ltd.",
+    contractorAr: "شركة البنائين الصناعيين",
+    contractName: "CON-2023-089"
   },
   {
     id: "PRJ-004",
@@ -81,7 +90,10 @@ const projectsData = [
     teamSize: 28,
     location: "Dammam",
     locationAr: "الدمام",
-    priority: "Medium"
+    priority: "Medium",
+    contractor: "Port Infrastructure Solutions",
+    contractorAr: "حلول البنية التحتية للموانئ",
+    contractName: "CON-2024-032"
   },
   {
     id: "PRJ-005",
@@ -98,7 +110,10 @@ const projectsData = [
     teamSize: 22,
     location: "Taif",
     locationAr: "الطائف",
-    priority: "Low"
+    priority: "Low",
+    contractor: "Luxury Resort Builders",
+    contractorAr: "بناؤو المنتجعات الفاخرة",
+    contractName: "CON-2023-045"
   },
   {
     id: "PRJ-006",
@@ -115,7 +130,10 @@ const projectsData = [
     teamSize: 16,
     location: "Al-Khobar",
     locationAr: "الخبر",
-    priority: "Medium"
+    priority: "Medium",
+    contractor: "Environmental Development Corp.",
+    contractorAr: "شركة التطوير البيئي",
+    contractName: "CON-2024-078"
   }
 ]
 
@@ -281,28 +299,28 @@ export function ProjectsTable() {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-gray-200/50">
-                  <th className="text-left p-4 font-semibold text-muted-foreground">
+                  <th className={`p-4 font-semibold text-muted-foreground ${currentLang === "ar" ? "text-right" : "text-left"}`}>
                     {getLocalizedText(currentLang, "Project", "المشروع")}
                   </th>
-                  <th className="text-left p-4 font-semibold text-muted-foreground">
+                  <th className={`p-4 font-semibold text-muted-foreground ${currentLang === "ar" ? "text-right" : "text-left"}`}>
                     {getLocalizedText(currentLang, "Type", "النوع")}
                   </th>
-                  <th className="text-left p-4 font-semibold text-muted-foreground">
+                  <th className={`p-4 font-semibold text-muted-foreground ${currentLang === "ar" ? "text-right" : "text-left"}`}>
                     {getLocalizedText(currentLang, "Status", "الحالة")}
                   </th>
-                  <th className="text-left p-4 font-semibold text-muted-foreground">
+                  <th className={`p-4 font-semibold text-muted-foreground ${currentLang === "ar" ? "text-right" : "text-left"}`}>
                     {getLocalizedText(currentLang, "Progress", "التقدم")}
                   </th>
-                  <th className="text-left p-4 font-semibold text-muted-foreground">
+                  <th className={`p-4 font-semibold text-muted-foreground ${currentLang === "ar" ? "text-right" : "text-left"}`}>
                     {getLocalizedText(currentLang, "Timeline", "الجدول الزمني")}
                   </th>
-                  <th className="text-left p-4 font-semibold text-muted-foreground">
+                  <th className={`p-4 font-semibold text-muted-foreground ${currentLang === "ar" ? "text-right" : "text-left"}`}>
                     {getLocalizedText(currentLang, "Budget", "الميزانية")}
                   </th>
-                  <th className="text-left p-4 font-semibold text-muted-foreground">
-                    {getLocalizedText(currentLang, "Team", "الفريق")}
+                  <th className={`p-4 font-semibold text-muted-foreground ${currentLang === "ar" ? "text-right" : "text-left"}`}>
+                    {getLocalizedText(currentLang, "Contractor", "المقاول")}
                   </th>
-                  <th className="text-left p-4 font-semibold text-muted-foreground">
+                  <th className={`p-4 font-semibold text-muted-foreground ${currentLang === "ar" ? "text-right" : "text-left"}`}>
                     {getLocalizedText(currentLang, "Priority", "الأولوية")}
                   </th>
                 </tr>
@@ -360,9 +378,13 @@ export function ProjectsTable() {
                       <div className="text-sm font-medium">{project.budget}</div>
                     </td>
                     <td className="p-4">
-                      <div className="flex items-center gap-2">
-                        <IconUsers className="w-4 h-4 text-muted-foreground" />
-                        <span className="text-sm">{project.teamSize}</span>
+                      <div className="space-y-1">
+                        <div className="text-sm font-medium">
+                          {currentLang === "ar" ? project.contractorAr : project.contractor}
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          {project.contractName}
+                        </div>
                       </div>
                     </td>
                     <td className="p-4">

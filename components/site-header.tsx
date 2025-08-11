@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Badge } from "@/components/ui/badge"
+import Image from "next/image"
 
 // Helper function to get localized text
 const getLocalizedText = (lang: string, enText: string, arText: string) => {
@@ -36,7 +37,7 @@ export function SiteHeader() {
       {/* Glass effect background */}
       <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-white/80 backdrop-blur-sm" />
       
-      <div className="flex w-full items-center gap-2 px-6 lg:gap-3 lg:px-8 relative z-10 rtl:flex-row-reverse">
+      <div className="flex w-full items-center gap-2 px-6 lg:gap-3 lg:px-8 relative z-10">
         <SidebarTrigger className="-ml-1 rtl:-mr-1 rtl:ml-0 hover:bg-white/50 transition-colors" />
         <Separator
           orientation="vertical"
@@ -45,9 +46,16 @@ export function SiteHeader() {
         
         {/* Enhanced branding */}
         <div className="flex items-center gap-3">
-          <h1 className="text-lg font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
-            Rased
-          </h1>
+          <Image
+            src="/rased logo.png"
+            alt="Rased Logo"
+            width={40}
+            height={40}
+            className="rounded-full relative"
+          />
+          <div className="text-lg font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
+            {getLocalizedText(currentLang, "Rased", "راصد")}
+          </div>
           <Badge variant="secondary" className="bg-indigo-100/80 text-indigo-700 text-xs font-medium px-2 py-0.5">
             v2.1
           </Badge>
